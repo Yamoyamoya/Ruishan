@@ -39,8 +39,22 @@ function setup() {
     video.volume(0);
   });
   video.hide();
+  video.play();
 }
+function mousePressed() {
+      if (video) video.play(); // 用户交互保障播放
+    }
 
+    function addWordFromInput() {
+      let str = input.value().trim();
+      if (str.length > 0) {
+        let parts = str.match(/\S+/g);
+        for (let p of parts) {
+          addWord(p);
+        }
+        input.value('');
+      }
+    }
 function addWordFromInput() {
   let str = input.value().trim();
   if (str.length > 0) {
